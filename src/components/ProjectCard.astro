@@ -1,0 +1,18 @@
+---
+import GithubInfo from "../widget/GithubInfo.astro";
+import CardHorizontal from "../layouts/CardHorizontal.astro";
+const { title, image, desc, url, badge, target = "_blank" } = Astro.props;
+---
+
+<CardHorizontal title={title} image={image} url={url}>
+  <div class="relative w-full p-6 flex flex-col justify-between">
+    <a href={url} target={target}>
+      <h1 id={title} class="text-4xl m-0 p-2">
+        {title}
+      </h1>
+    </a>
+    <div class="m-2">{desc}</div>
+    {badge && <div class="badge badge-ghost m-2">{badge}</div>}
+    <GithubInfo url={url} />
+  </div>
+</CardHorizontal>
