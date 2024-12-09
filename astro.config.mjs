@@ -27,6 +27,10 @@ const { USER_SITE } = await import('./src/consts.ts');
 export default defineConfig({
   site: USER_SITE,
   output: 'static',
+  server: {
+    port: 4321,
+    host: '0.0.0.0',
+  },
   style: {
     scss: {
       includePaths: ["./src/styles"],
