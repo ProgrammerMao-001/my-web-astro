@@ -2,16 +2,23 @@
 import CardAside from "../layouts/CardAside.astro";
 import ThemeButton from "../widget/ThemeButton.astro";
 import BackToTopButton from "../widget/BackToTopButton.astro";
-import { t } from "i18next";
+import LanguageChangeButton from "../widget/LanguageChangeButton.astro"
+import {changeLanguage, t} from "i18next";
+import i18next from "i18next";
+// changeLanguage("zh") // todo 切换语言功能
 ---
 
 <div class="overflow-hidden grid gap-8 w-full sticky top-8">
   <div class="w-full overflow-hidden rounded-xl">
     <div
-      class="grid gap-4 grid-cols-2 md:grid-cols-1 lg:grid-cols-2 justify-center w-full overflow-hide bg-base-100 p-4 transition-colors shadow-xl rounded-xl"
+      class="grid gap-3 grid-cols-2 md:grid-cols-1 lg:grid-cols-3 justify-center w-full overflow-hide bg-base-100 p-4 transition-colors shadow-xl rounded-xl"
       id="button-box"
     >
       <ThemeButton id="side-theme-button" className="card" />
+      <LanguageChangeButton
+          id="language-button"
+          className="card"
+          title={t('label.change-language')}/>
       <BackToTopButton id="back-button" className="card" />
     </div>
   </div>

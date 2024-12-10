@@ -2,11 +2,11 @@
 const { id, className } = Astro.props;
 ---
 
-<frosti-backtotop id={id} class:list={[className, "flex", "ustify-center"]}>
+<frosti-backtotop id={id} class:list={[className, "flex", "items-center", "ustify-center"]}>
   <button class:list={[className, "btn", "btn-ghost"]} id="backToTop"
     ><span class="sr-only">To Top Button</span><svg
       viewBox="0 0 24 24"
-      fill="fill-current w-10 h-10"
+      class="swap-off fill-current w-10 h-10"
       xmlns="http://www.w3.org/2000/svg"
       ><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g
         id="SVGRepo_tracerCarrier"
