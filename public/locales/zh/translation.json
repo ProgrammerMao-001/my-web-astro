@@ -13,5 +13,16 @@
     "readTime": "分钟",
     "share": "分享博客",
     "change-language": "切换语言"
+  },
+  "navbar": {
+    "home": "首页",
+    "about": "关于",
+    "blog": "博客",
+    "all_blogs": "全部文章",
+    "tech_blogs": "科技博客",
+    "life_blogs": "生活博客",
+    "project": "项目",
+    "friend": "友链",
+    "contact": "联系"
   }
 }

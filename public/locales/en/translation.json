@@ -13,5 +13,16 @@
     "readTime": "minutes",
     "share": "Share",
     "change-language": "change language"
+  },
+  "navbar": {
+    "home": "Home",
+    "about": "About",
+    "blog": "Blog",
+    "all_blogs": "All Blogs",
+    "tech_blogs": "Tech Blogs",
+    "life_blogs": "Life Blogs",
+    "project": "Project",
+    "friend": "Friend",
+    "contact": "Contact"
   }
 }

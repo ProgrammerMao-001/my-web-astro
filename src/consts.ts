@@ -2,7 +2,7 @@
 // You can import this data from anywhere in your site by using the `import` keyword.
 
 // Site title and description
-export const SITE_LANG = "en"; // zh-CN, en, ja, ko, ru, zh-TW
+export const SITE_LANG = "zh"; // zh, en
 export const SITE_TAB = "欢迎访问我的博客"; // Frosti
 export const SITE_TITLE = "Frosti 🧊";
 export const SITE_DESCRIPTION = "A blog template";
@@ -31,42 +31,42 @@ export const CODE_THEME = {
 export const menuItems = [
   {
     id: "home",
-    text: "Home",
+    text: "navbar.home",
     href: "/",
     svg: "material-symbols:home-outline-rounded",
     target: "_self"
   }, // Home page
   {
     id: "about",
-    text: "About",
+    text: "navbar.about",
     href: "/about",
     svg: "material-symbols:info-outline-rounded",
     target: "_self"
   }, // About page
   {
     id: "blog",
-    text: "Blogs",
+    text: "navbar.blog",
     href: "/blog",
     svg: "material-symbols:book-2-outline-rounded",
     target: "_self",
     subItems: [
       {
         id: "all",
-        text: "All blogs",
+        text: "navbar.all_blogs",
         href: "/blog",
         svg: "material-symbols:ink-pen-outline-rounded",
         target: "_self",
       }, // All blog
       {
         id: "tech",
-        text: "Tech blogs",
+        text: "navbar.tech_blogs",
         href: "/blog/categories/tech",
         svg: "material-symbols:deployed-code-outline",
         target: "_self",
       }, // Technology category
       {
         id: "life",
-        text: "Life blogs",
+        text: "navbar.life_blogs",
         href: "/blog/categories/life",
         svg: "material-symbols:earthquake-rounded",
         target: "_self",
@@ -75,21 +75,21 @@ export const menuItems = [
   }, // Blog page with sub-items
   {
     id: "project",
-    text: "Project",
+    text: "navbar.project",
     href: "/project",
     svg: "material-symbols:code-blocks-outline",
     target: "_self",
   }, // Projects page
   {
     id: "friend",
-    text: "Friend",
+    text: "navbar.friend",
     href: "/friend",
     svg: "material-symbols:supervisor-account-outline-rounded",
     target: "_self",
   }, // Friends page
   {
     id: "contact",
-    text: "Contact",
+    text: "navbar.contact",
     href: "mailto:mhf.work@qq.com", // Contact email
     target: "_blank", // Open in a new tab
     svg: "material-symbols:attach-email-outline-rounded",

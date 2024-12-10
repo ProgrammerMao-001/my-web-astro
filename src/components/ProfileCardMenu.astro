@@ -1,6 +1,10 @@
 ---
 import { menuItems } from "../consts";
 import { Icon } from "astro-icon/components";
+
+import i18next, {t, changeLanguage} from "i18next";
+import { SITE_LANG } from "../consts";
+changeLanguage(SITE_LANG);
 ---
 
 <ul
@@ -13,7 +17,7 @@ import { Icon } from "astro-icon/components";
           <details class="menu-item">
             <summary class="justify-center lg:justify-start items-center text-center text-xl md:text-3xl lg:text-xl font-bold p-4">
               <Icon name={item.svg} />
-              <span class="hidden lg:inline ml-2">{item.text}</span>
+              <span class="hidden lg:inline ml-2">{t(`${item.text}`)}</span>
             </summary>
             <ul>
               {item.subItems.map((subItem) => (
@@ -24,10 +28,10 @@ import { Icon } from "astro-icon/components";
                     id={`header-${subItem.id}`}
                     href={subItem.href}
                     target={subItem.target || "_self"}
-                    aria-label={subItem.text}
+                    aria-label={t(`${subItem.text}`)}
                   >
                     <Icon name={subItem.svg} />
-                    <span class="hidden lg:inline ml-2">{subItem.text}</span>
+                    <span class="hidden lg:inline ml-2">{t(`${subItem.text}`)}</span>
                   </a>
                 </li>
               ))}
@@ -41,10 +45,10 @@ import { Icon } from "astro-icon/components";
             title={item.id}
             href={item.href}
             target={item.target || "_self"}
-            aria-label={item.text}
+            aria-label={t(`${item.text}`)}
           >
             <Icon name={item.svg} />
-            <span class="hidden lg:inline ml-2">{item.text}</span>
+            <span class="hidden lg:inline ml-2">{t(`${item.text}`)}</span>
           </a>
         )}
       </li>
