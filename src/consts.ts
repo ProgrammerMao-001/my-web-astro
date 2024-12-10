@@ -27,9 +27,22 @@ export const CODE_THEME = {
 }
 
 // Menu items for navigation
+// 图标库参考：https://icon-sets.iconify.design/material-symbols/?icon-filter=home
 export const menuItems = [
-  { id: "home", text: "Home", href: "/", svg: "material-symbols:home-outline-rounded", target: "_self" }, // Home page
-  { id: "about", text: "About", href: "/about", svg: "material-symbols:info-outline-rounded", target: "_self" }, // About page
+  {
+    id: "home",
+    text: "Home",
+    href: "/",
+    svg: "material-symbols:home-outline-rounded",
+    target: "_self"
+  }, // Home page
+  {
+    id: "about",
+    text: "About",
+    href: "/about",
+    svg: "material-symbols:info-outline-rounded",
+    target: "_self"
+  }, // About page
   {
     id: "blog",
     text: "Blogs",
@@ -86,27 +99,27 @@ export const menuItems = [
 // Social media and contact icons
 export const socialIcons = [
   {
-    href: "https://afdian.net/a/saroprock",
-    ariaLabel: "Support my work",
-    title: "Support my work",
-    svg: "ri:cup-line",
-  },
-  {
-    href: "https://github.com/EveSunMaple",
-    ariaLabel: "Github",
-    title: "Github",
-    svg: "ri:github-line",
-  },
-  {
-    href: "https://space.bilibili.com/438392347",
-    ariaLabel: "BiliBili",
-    title: "BiliBili",
-    svg: "ri:bilibili-line",
-  },
-  {
     href: "/rss.xml",
     ariaLabel: "RSS Feed",
-    title: "RSS Feed",
-    svg: "ri:rss-line",
+    title: "点击加我微信",
+    svg: "wechat",
+  },
+  {
+    href: "https://qm.qq.com/cgi-bin/qm/qr?k=v5DwACIOAdSzWoDfrwbUBLu6FcDpNJ7W&jump_from=webapi&authKey=PdRcutFys2A+ydVHkJBa47R670SWuMEx1PfSJi1ehpGb4vXEk/ie3iwxcHpjTy9w",
+    ariaLabel: "QQ",
+    title: "点击加入群聊",
+    svg: "qq",
+  },
+  {
+    href: "https://github.com/ProgrammerMao-001",
+    ariaLabel: "Github",
+    title: "我的github主页",
+    svg: "github",
+  },
+  {
+    href: "https://blog.csdn.net/m0_74149462?type=blog",
+    ariaLabel: "CSDN",
+    title: "我的csdn主页",
+    svg: "csdn",
   },
 ];
