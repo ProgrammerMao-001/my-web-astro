@@ -9,6 +9,7 @@ import Success from "../components/blog/success.astro";
 import Warning from "../components/blog/warning.astro";
 import TimeLine from "../components/page/TimeLine.astro";
 import LinkCard from "../components/page/LinkCard.astro";
+import { SITE_QQ, SITE_QQ1, SITE_QQ_GROUP } from "../consts.js";
 
 <BaseLayout title="Friend">
   <BaseCard title="Friend">
@@ -19,16 +20,16 @@ import LinkCard from "../components/page/LinkCard.astro";
     <div class="grid grid-cols-2 gap-4">
       <LinkCard
         title="QQ"
-        desc="搜索：3061148499 或 ACodeMan"
+        desc={`搜索 ${SITE_QQ} 或 ${SITE_QQ1}`}
         url="#"
         target="_self"
-        img="https://q2.qlogo.cn/headimg_dl?dst_uin=3061148499&spec=5"
+        img={`https://q2.qlogo.cn/headimg_dl?dst_uin=${SITE_QQ}&spec=5`}
       />
       <LinkCard
-        title="QQ群 835193194"
+        title={`QQ群 ${SITE_QQ_GROUP}`}
         desc="欢迎点击进入群聊~"
         url="https://qm.qq.com/cgi-bin/qm/qr?k=v5DwACIOAdSzWoDfrwbUBLu6FcDpNJ7W&jump_from=webapi&authKey=PdRcutFys2A+ydVHkJBa47R670SWuMEx1PfSJi1ehpGb4vXEk/ie3iwxcHpjTy9w"
-        img="http://p.qlogo.cn/gh/835193194/835193194/0"
+        img={`http://p.qlogo.cn/gh/${SITE_QQ_GROUP}/${SITE_QQ_GROUP}/0`}
       />
     </div>
 

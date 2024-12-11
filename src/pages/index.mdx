@@ -9,7 +9,7 @@ import Success from "../components/blog/success.astro";
 import Warning from "../components/blog/warning.astro";
 import TimeLine from "../components/page/TimeLine.astro";
 import LinkCard from "../components/page/LinkCard.astro";
-import {SITE_AUTHOR, SITE_INTRO} from "../consts.js";
+import {SITE_AUTHOR, SITE_INTRO, SITE_QQ1, SITE_QQ, SITE_EMAIL} from "../consts.js";
 
 <BaseLayout title="Home">
     <BaseCard title="Home">
@@ -57,8 +57,8 @@ import {SITE_AUTHOR, SITE_INTRO} from "../consts.js";
         - **开源贡献**: 参与多个开源项目，贡献代码和文档
 
         ## 联系方式
-        - **QQ**: 3061148499
-        - **邮箱**: mhf.work@qq.com
+        - **QQ**: { SITE_QQ } 或 { SITE_QQ1 }
+        - **邮箱**: { SITE_EMAIL }
         - **GitHub**: <a href="https://github.com/ProgrammerMao-001" target="_blank">ProgrammerMao-001</a>
     </BaseCard>
 </BaseLayout>

@@ -8,7 +8,7 @@ import {Icon} from "astro-icon/components";
         socialIcons.map((icon) => (
                 <a
                         href={icon.href}
-                        target="_blank"
+                        target={icon?.target || "_blank"}
                         class="text-center rounded-[10px] inline-block m-[0_5px] leading-[30px] w-[30px] text-2xl no-underline"
                         aria-label={icon.ariaLabel}
                         title={icon.title}

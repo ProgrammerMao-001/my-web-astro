@@ -4,6 +4,10 @@
 // Site title and description
 export const SITE_LANG = "zh"; // zh, en
 export const SITE_AUTHOR = "毛三仙"; // zh, en
+export const SITE_QQ = "3061148499";
+export const SITE_QQ1 = "ACodeMan";
+export const SITE_QQ_GROUP = "835193194";
+export const SITE_EMAIL = "mhf.work@qq.com";
 export const PAGE_SIZE = 6; // 分页数
 export const SITE_INTRO = "一名专注于技术和细节的全栈开发者，致力于通过简洁高效的代码实现卓越的功能。"; // zh, en
 export const SITE_TAB = "欢迎访问我的博客"; // Frosti
@@ -95,16 +99,18 @@ export const menuItems = [
 // Social media and contact icons
 export const socialIcons = [
   {
-    href: "/rss.xml",
-    ariaLabel: "RSS Feed",
-    title: "点击加我微信",
-    svg: "wechat",
-  },
-  {
     href: "https://qm.qq.com/cgi-bin/qm/qr?k=v5DwACIOAdSzWoDfrwbUBLu6FcDpNJ7W&jump_from=webapi&authKey=PdRcutFys2A+ydVHkJBa47R670SWuMEx1PfSJi1ehpGb4vXEk/ie3iwxcHpjTy9w",
     ariaLabel: "QQ",
     title: "点击加入群聊",
     svg: "qq",
+  },
+  {
+    // href: "/rss.xml",
+    href: "/wechat",
+    ariaLabel: "wechat",
+    title: "暂未公开微信，可以先加我qq",
+    target: "_self",
+    svg: "wechat",
   },
   {
     href: "https://github.com/ProgrammerMao-001",
