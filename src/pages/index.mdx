@@ -9,78 +9,56 @@ import Success from "../components/blog/success.astro";
 import Warning from "../components/blog/warning.astro";
 import TimeLine from "../components/page/TimeLine.astro";
 import LinkCard from "../components/page/LinkCard.astro";
+import {SITE_AUTHOR, SITE_INTRO} from "../consts.js";
 
 <BaseLayout title="Home">
-  <BaseCard title="Home">
-    <div class="flex">
-      <div class="p-6">
-          # Hi there! 👋
+    <BaseCard title="Home">
+        # Hi there! 👋
 
-          This is the Frosti theme
+        我是 {SITE_AUTHOR}️
 
-          A clean, elegant, and fast static blog template
-      </div>
-    </div>
+        ⚡️{SITE_INTRO}
 
-  </BaseCard>
+    </BaseCard>
 
-  <BaseCard title="Home" image="/index.webp">
-# Frosti Introduction
+    <BaseCard title="Home">
+        # 关于我
 
----
+        ## 个人信息
 
-## Welcome to Frosti Blog Template
+        - **姓名**: {SITE_AUTHOR}
+        - **职业**: 全栈开发工程师
+        - **工龄**: 6年
+        - **地点**: 浙江 · 杭州
+        - **交付项目**: 99+
 
-### 🧊 Frosti
+        ## 职业背景
+        我是一名经验丰富的全栈开发工程师，专注于构建高性能且可扩展的Web应用程序。在前端和后端开发方面拥有深厚的经验，并熟悉多种编程语言和技术栈。
 
-**A clean, elegant, and fast static blog template! 🚀 Developed with [Astro](https://astro.build/)!**
+        ## 项目经验
 
-[**🖥️ Frosti Demo**](https://frosti.saroprock.com)&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;[**🌏 Chinese README**](https://github.com/EveSunMaple/Frosti/blob/main/README.zh-CN.md)&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;[**❤️ My Blog**](https://www.saroprock.com)
+        - **Web 应用**: 后台管理系统、内容管理系统、数据分析平台、可视化大屏驾驶舱、博客 等。
+        - **移动应用**: H5 网站、小程序、APP 等。
+        - **三方平台**: 百度、高德、微信、海康监控 等。
 
-### Why Choose Frosti?
+        ## 技能
 
-- **Lightning-fast Access Speed and Excellent SEO**: Your blog content spreads quickly and efficiently.
-- **View Transition Animations**: Smooth visual experience with Swup.
-- **Integrated Sidebar**: Includes social info cards, theme switch, back-to-top button, and persistent article directory.
-- **Powerful Search Functionality**: Easily search articles using pagefind.
-- **Day/Night Mode**: Adapt to different reading environments.
-- **Rich Components**: Collapsible pages, link cards, timeline components, various alerts, code block copy button, image comparison, and end-of-article copyright information.
-- **Comment System**: Built with [Waline](https://waline.js.org/) for interactive discussions.
-- **Responsive Design**: Crafted with [Tailwind CSS](https://tailwindcss.com/) and [daisyUI](https://daisyui.com/) to fit different devices.
+        - **编程语言**: JavaScript, TypeScript, Java, node
+        - **开发框架**: React, Vue, Astro, Node.js, Spring Cloud
+        - **数据库**: MySQL, MongoDB, Redis
+        - **开发工具**: Git, Docker, Jenkins
+        - **设计软件**: Photoshop, Illustrator
 
-### Feature Highlights
+        ## 兴趣爱好
 
-- **Easy Installation and Use**: Install with just one command, customize everything in `consts.ts`.
-- **Variety of Article Components**: Enhance the presentation of your blog content.
+        - **阅读**: 科技新闻、编程书籍、艺术作品
+        - **旅行摄影**: 探索新的城市和文化；记录生活中的美好瞬间
+        - **运动**:
+        - **开源贡献**: 参与多个开源项目，贡献代码和文档
 
-### How to Get Started?
-
-1. **Install Frosti**
-
-   Simply run the following command in your terminal:
-
-   ```sh
-   npm create astro@latest -- --template EveSunMaple/Frosti
-   ```
-
-2. **Configure the Comment System**
-
-   Set up [Waline](https://waline.js.org/) to enable comments. Check `src\components\Comment.astro` for details.
-
-### Future Plans
-
-- **Integrate Headless CMS**.
-- **Fix Known Style Bugs**.
-- **More Features Coming Soon...**
-
-### Special Thanks
-
-A big thanks to @[Saicaca](https://github.com/saicaca) and @[WRXinYue](https://github.com/WRXinYue) for their inspiration and help with Frosti.
-
-### Star History
-
-![Star History Chart](https://api.star-history.com/svg?repos=EveSunMaple/Frosti&type=Date)
-
-
-  </BaseCard>
+        ## 联系方式
+        - **QQ**: 3061148499
+        - **邮箱**: mhf.work@qq.com
+        - **GitHub**: <a href="https://github.com/ProgrammerMao-001" target="_blank">ProgrammerMao-001</a>
+    </BaseCard>
 </BaseLayout>
