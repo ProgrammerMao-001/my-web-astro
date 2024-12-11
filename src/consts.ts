@@ -61,25 +61,25 @@ export const menuItems = [
         id: "all",
         text: "navbar.all_blogs",
         href: "/blog",
-        svg: "material-symbols:ink-pen-outline-rounded",
+        svg: "material-symbols:box-outline-sharp",
         target: "_self",
-      }, // All blog
+      }, // All blog 全部博客 -》 全部项目
       {
         id: "tech",
         text: "navbar.tech_blogs",
         href: "/blog/categories/tech",
-        svg: "material-symbols:deployed-code-outline",
+        svg: "material-symbols:approval-delegation-outline-sharp",
         target: "_self",
-      }, // Technology category
+      }, // Technology category 技术博客 -》 公司项目
       {
         id: "life",
         text: "navbar.life_blogs",
         href: "/blog/categories/life",
         svg: "material-symbols:earthquake-rounded",
         target: "_self",
-      }, // Life category
+      }, // Life category 生活博客 -》 私活项目
     ],
-  }, // Blog page with sub-items
+  }, // Blog page with sub-items 博客 -》 项目
   {
     id: "project",
     text: "navbar.project",

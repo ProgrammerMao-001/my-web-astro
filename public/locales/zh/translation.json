@@ -17,11 +17,11 @@
   "navbar": {
     "home": "首页",
     "about": "关于",
-    "blog": "博客",
-    "all_blogs": "全部文章",
-    "tech_blogs": "科技博客",
-    "life_blogs": "生活博客",
-    "project": "项目1",
+    "blog": "历史项目",
+    "all_blogs": "全部项目",
+    "tech_blogs": "公司项目",
+    "life_blogs": "私活项目",
+    "project": "开源项目",
     "contact": "联系我"
   }
 }
