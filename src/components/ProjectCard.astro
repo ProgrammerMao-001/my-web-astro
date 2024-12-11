@@ -4,7 +4,7 @@ import CardHorizontal from "../layouts/CardHorizontal.astro";
 const { title, image, desc, url, badge, target = "_blank" } = Astro.props;
 ---
 
-<CardHorizontal title={title} image={image} url={url}>
+<CardHorizontal title={title} image={image} url={url} target={target}>
   <div class="relative w-full p-6 flex flex-col justify-between">
     <a href={url} target={target}>
       <h1 id={title} class="text-4xl m-0 p-2">
