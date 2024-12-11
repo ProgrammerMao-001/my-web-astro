@@ -2,8 +2,8 @@
 // You can import this data from anywhere in your site by using the `import` keyword.
 
 // Site title and description
-export const SITE_LANG = "zh"; // zh, en
-export const SITE_AUTHOR = "毛三仙"; // zh, en
+export const SITE_LANG = "en"; // zh, en
+export const SITE_AUTHOR = "毛三仙";
 export const SITE_QQ = "3061148499";
 export const SITE_QQ1 = "ACodeMan";
 export const SITE_QQ_GROUP = "835193194";
@@ -44,12 +44,12 @@ export const menuItems = [
     target: "_self"
   }, // Home page
   {
-    id: "about",
-    text: "navbar.about",
-    href: "/about",
-    svg: "material-symbols:info-outline-rounded",
+    id: "work-experience",
+    text: "navbar.work-experience",
+    href: "/workExperience",
+    svg: "material-symbols:work-outline",
     target: "_self"
-  }, // About page
+  }, // About page -》 工作经历
   {
     id: "blog",
     text: "navbar.blog",
@@ -67,14 +67,14 @@ export const menuItems = [
       {
         id: "tech",
         text: "navbar.tech_blogs",
-        href: "/blog/categories/tech",
+        href: "/blog/categories/公司项目",
         svg: "material-symbols:approval-delegation-outline-sharp",
         target: "_self",
       }, // Technology category 技术博客 -》 公司项目
       {
         id: "life",
         text: "navbar.life_blogs",
-        href: "/blog/categories/life",
+        href: "/blog/categories/私活项目",
         svg: "material-symbols:earthquake-rounded",
         target: "_self",
       }, // Life category 生活博客 -》 私活项目
@@ -94,6 +94,13 @@ export const menuItems = [
     svg: "material-symbols:attach-email-outline-rounded",
     target: "_self",
   }, // 联系我
+  {
+    id: "contact",
+    text: "navbar.online-resume",
+    href: "/onlineResume",
+    svg: "material-symbols:prescriptions-outline-sharp",
+    target: "_self",
+  }, // 在线简历
 ];
 
 // Social media and contact icons

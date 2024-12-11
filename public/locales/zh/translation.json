@@ -16,7 +16,8 @@
   },
   "navbar": {
     "home": "首页",
-    "about": "关于",
+    "work-experience": "工作经历",
+    "online-resume": "在线简历",
     "blog": "历史项目",
     "all_blogs": "全部项目",
     "tech_blogs": "公司项目",

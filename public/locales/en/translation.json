@@ -16,7 +16,8 @@
   },
   "navbar": {
     "home": "Home",
-    "about": "About",
+    "work-experience": "Work Experience",
+    "online-resume": "Online Resume",
     "blog": "Historical Projects",
     "all_blogs": "All Projects",
     "tech_blogs": "Company Projects",
