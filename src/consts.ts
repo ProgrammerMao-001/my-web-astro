@@ -4,11 +4,12 @@
 // Site title and description
 export const SITE_LANG = "zh"; // zh, en
 export const SITE_AUTHOR = "毛三仙"; // zh, en
+export const PAGE_SIZE = 6; // 分页数
 export const SITE_INTRO = "一名专注于技术和细节的全栈开发者，致力于通过简洁高效的代码实现卓越的功能。"; // zh, en
 export const SITE_TAB = "欢迎访问我的博客"; // Frosti
 export const SITE_TITLE = "Welcome 🧊";
 export const SITE_DESCRIPTION = "A blog template";
-export const DATE_FORMAT = "ddd MMM DD YYYY";
+export const DATE_FORMAT = "YYYY-MM-DD";
 
 // User profile information
 export const USER_NAME = "EveSunMaple";

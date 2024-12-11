@@ -6,6 +6,7 @@ export interface Post {
     image: string;
     description: string;
     pubDate: Date;
+    projectCycle?: string;
     badge: string;
     categories: string[];
     tags: string[];
@@ -32,6 +33,7 @@ export interface CardInfo {
   title: string;
   image?: string;
   pubDate?: Date;
+  projectCycle?: string;
   badge?: string;
   categories?: string[];
   tags?: string[];
@@ -47,6 +49,7 @@ export interface EnvelopeInfo {
   desc: string;
   image?: string;
   pubDate?: Date;
+  projectCycle?: string;
   badge?: string;
   categories?: string[];
   tags?: string[];

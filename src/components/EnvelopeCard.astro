@@ -1,4 +1,5 @@
 ---
+import {DATE_FORMAT} from "../consts";
 import dayjs from "dayjs";
 import CardHorizontal from "../layouts/CardHorizontal.astro";
 import type { EnvelopeInfo } from "../types";
@@ -14,8 +15,9 @@ const {
   word,
   time,
   url,
+  projectCycle,
 } = Astro.props as EnvelopeInfo;
-const displayDate = dayjs(pubDate).format("ddd MMM DD YYYY");
+const displayDate = dayjs(pubDate).format(DATE_FORMAT);
 const hasTategories = categories && categories.length > 0;
 const hasTags = tags && tags.length > 0;
 const target = "_self";
@@ -32,7 +34,8 @@ const target = "_self";
     <div class="m-2 w-full">
       <div class="flex w-full items-center justify-between">
         <div class="flex w-full items-center gap-2 flex-wrap">
-          {displayDate && <div class="badge badge-neutral">{displayDate}</div>}
+          <!--{displayDate && <div class="badge badge-neutral">{displayDate}</div>}-->
+          {projectCycle && <div class="badge badge-neutral">{projectCycle}</div>}
           {badge && <div class="badge badge-primary">{badge}</div>}
         </div>
         {

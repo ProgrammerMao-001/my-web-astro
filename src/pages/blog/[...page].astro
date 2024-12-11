@@ -6,6 +6,7 @@ import BaseCard from "../../components/BaseCard.astro";
 import { getCollection } from "astro:content";
 import Search from "astro-pagefind/components/Search";
 import { t } from "i18next";
+import { PAGE_SIZE } from "../../consts";
 
 export async function getStaticPaths({ paginate }: { paginate: any }) {
   const posts = await getCollection("blog");
@@ -33,7 +34,7 @@ export async function getStaticPaths({ paginate }: { paginate: any }) {
     }),
   );
 
-  return paginate(postsWithStats, { pageSize: 8 });
+  return paginate(postsWithStats, { pageSize: PAGE_SIZE });
 }
 
 const { page }: { page: Page } = Astro.props;
@@ -82,6 +83,7 @@ const pageLinks = generatePageLinks(totalPages);
         desc={post.data.description}
         url={"/blog/" + post.slug}
         pubDate={post.data.pubDate}
+        projectCycle={post.data.projectCycle}
         badge={post.data.badge}
         categories={post.data.categories}
         tags={post.data.tags}

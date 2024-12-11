@@ -5,6 +5,7 @@ import BaseLayout from "../../../../layouts/BaseLayout.astro";
 import BaseCard from "../../../../components/BaseCard.astro";
 import { getCollection } from "astro:content";
 import { t } from "i18next";
+import { PAGE_SIZE } from "../../../../consts";
 
 export async function getStaticPaths({ paginate }: { paginate: any }) {
   const all_posts = await getCollection("blog");
@@ -34,7 +35,7 @@ export async function getStaticPaths({ paginate }: { paginate: any }) {
     );
     return paginate(filtered_posts, {
       params: { category },
-      pageSize: 8,
+      pageSize: PAGE_SIZE,
     });
   });
 }
@@ -83,6 +84,7 @@ const pageLinks = generatePageLinks(totalPages);
         desc={post.data.description}
         url={"/blog/" + post.slug}
         pubDate={post.data.pubDate}
+        projectCycle={post.data.projectCycle}
         badge={post.data.badge}
         categories={post.data.categories}
         tags={post.data.tags}
