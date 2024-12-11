@@ -83,19 +83,12 @@ export const menuItems = [
     target: "_self",
   }, // Projects page
   {
-    id: "friend",
-    text: "navbar.friend",
-    href: "/friend",
-    svg: "material-symbols:supervisor-account-outline-rounded",
-    target: "_self",
-  }, // Friends page
-  {
     id: "contact",
     text: "navbar.contact",
-    href: "mailto:mhf.work@qq.com", // Contact email
-    target: "_blank", // Open in a new tab
+    href: "/contact",
     svg: "material-symbols:attach-email-outline-rounded",
-  },
+    target: "_self",
+  }, // 联系我
 ];
 
 // Social media and contact icons
