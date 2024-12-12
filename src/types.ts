@@ -27,6 +27,7 @@ export interface Page {
   total: number;
   size: number;
   current: string;
+  currentPage: string;
 }
 
 export interface CardInfo {

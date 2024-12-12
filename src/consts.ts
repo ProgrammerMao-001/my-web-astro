@@ -2,7 +2,7 @@
 // You can import this data from anywhere in your site by using the `import` keyword.
 
 // Site title and description
-export const SITE_LANG = "en"; // zh, en
+export const SITE_LANG = "zh"; // zh, en
 export const SITE_AUTHOR = "毛三仙";
 export const SITE_QQ = "3061148499";
 export const SITE_QQ1 = "ACodeMan";
