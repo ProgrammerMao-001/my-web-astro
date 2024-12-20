@@ -18,7 +18,7 @@ export const DATE_FORMAT = "YYYY-MM-DD";
 
 // ---------------- ↓ 用户信息 ↓ ----------------
 export const USER_NAME = "MaoHangFei";
-export const USER_SITE = "" // http://maohangfei.cn todo 等域名审核通过后打开
+export const USER_SITE = "https://demo.saroprock.com" // http://maohangfei.cn todo 等域名审核通过后打开
 export const USER_AVATAR = "/profile.webp";
 
 // ---------------- ↑ 用户信息 ↑ ----------------
@@ -110,14 +110,15 @@ export const menuItems = [
 
 export const socialIcons = [
   {
-    href: "https://qm.qq.com/cgi-bin/qm/qr?k=v5DwACIOAdSzWoDfrwbUBLu6FcDpNJ7W&jump_from=webapi&authKey=PdRcutFys2A+ydVHkJBa47R670SWuMEx1PfSJi1ehpGb4vXEk/ie3iwxcHpjTy9w",
+    href: "/contact",
     ariaLabel: "QQ",
-    title: "点击加入群聊",
+    title: "查看我的联系方式",
+    target: "_self",
     svg: "qq",
   },
   {
     // href: "/rss.xml",
-    href: "/wechat",
+    href: "/contact",
     ariaLabel: "wechat",
     title: "暂未公开微信，可以先加我qq",
     target: "_self",
