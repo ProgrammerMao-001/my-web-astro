@@ -14,6 +14,9 @@ import {
   SITE_TITLE,
   SITE_DESCRIPTION,
   DAISYUI_THEME,
+  SITE_AUTHOR,
+  SITE_KEYWORDS,
+  SITE_NAME,
 } from "../consts";
 // https://github.com/yassinedoghri/astro-i18next
 import i18next, { changeLanguage } from "i18next";
@@ -62,7 +65,13 @@ const { title, image } = Astro.props;
         document.documentElement.setAttribute("data-theme", currentTheme);
       })();
     </script>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} image={image} />
+    <BaseHead
+        title={SITE_TITLE}
+        description={SITE_DESCRIPTION}
+        author={SITE_AUTHOR}
+        keywords={SITE_KEYWORDS}
+        siteName={SITE_NAME}
+        image={image} />
   </head>
 
   <body>
