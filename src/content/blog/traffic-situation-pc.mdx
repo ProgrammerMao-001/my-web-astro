@@ -1,30 +1,86 @@
 ---
 title: "交通态势系统"
 description: "负责项目的整个前端建设"
-pubDate: "2023.09.01"
-projectCycle: "2023.09.01 - 2023.10.25"
-image: /image/image3.png
+pubDate: "2023.09.14"
+projectCycle: "2023.09.14 - 2023.10.26"
+image: /image/blog/traffic-situation-pc/banner.png
 categories:
   - 公司项目
 tags:
   - vue
   - web
   - leaflet
-  - 大屏
+  - 后台管理系统
 ---
+## 项目介绍
 
-## 交通态势系统
+> 本系统主要用于以下功能：
+- **交通信息展示**：提供实时交通路况、路况预测及预测分析，帮助用户及时了解道路状况。
+![节目单编辑](/image/blog/traffic-situation-pc/banner.png)
+- **信息屏管理**：
+1. 节目单编辑：支持自定义编辑节目内容。
+![节目单编辑](/image/blog/traffic-situation-pc/programmer.png)
+2. 信息屏配置：灵活配置信息屏的各项参数。
+![信息屏配置](/image/blog/traffic-situation-pc/camera.png)
+3. 节目发布：实现节目内容的高效发布与管理。
+![节目发布](/image/blog/traffic-situation-pc/screen.png)
 
-```json
-[
- {
-      "name": "交通态势系统",
-      "time": "2023.09.01 - 2023.10.25",
-      "responsibleModule": "负责项目的整个前端建设",
-      "outPic": "",
-      "systemPic": [],
-      "difficulty": "",
-      "moreInfo": "更多"
+- **路段、区域管理**：
+1. 路段编辑：选择起点和终点，自动生成路径。
+![路段编辑](/image/blog/traffic-situation-pc/road.png)
+2. 区域配置：支持手动绘制区域。
+![区域配置](/image/blog/traffic-situation-pc/area.png)
+
+通过上述功能，系统能够为用户提供全面、准确、及时的交通信息服务。
+
+## 项目难点
+
+### 绘制路段
+1. 自动绘制
+通过百度地图提供的驾车规划接口，自动绘制出路线。
+2. 手动绘制
+绘制起点和终点，通过拖动中间点位的方式调整路段。
+![区域配置](/image/blog/traffic-situation-pc/road1.png)
+
+### 绘制区域
+使用百度地图提供的api绘制。
+
+## 代码示例
+### 选择起点和终点自动生成路线（驾车规划）
+```javascript
+function drawRouteLine() {
+  let drivingTime = 0;
+  let drivingDistance = 0;
+  let pointsArr = [];
+  let that = this;
+  var searchComplete = function (results) {
+    if (transit.getStatus() == BMAP_STATUS_SUCCESS) {
+      var plan = results.getPlan(0);
+      drivingTime = plan.getDuration(true); //获取时间
+      drivingDistance = plan.getDistance(true); //获取距离
+      pointsArr = that.makePointsArr(plan._lines); // 路段中所有的点位数组
+      that.removeMarker();
     }
-]
+  };
+  var transit = new BMapGL.DrivingRouteLine(this.bdMap, {
+    renderOptions: {
+      map: this.bdMap,
+      enableDragging: true,
+      autoViewport: false,
+      lineLayerStyle: {
+        // strokeTextureUrl: null,
+        showTraffic: true,
+      },
+    },
+    onSearchComplete: searchComplete,
+    onPolylinesSet: () => {
+      this.drivingTime = drivingTime;
+      this.drivingDistance = this.convertDistance(drivingDistance);
+      this.pointsArr = deepClone(pointsArr);
+    },
+  });
+  let start = new BMapGL.Point(this.startPoint.lng, this.startPoint.lat);
+  let end = new BMapGL.Point(this.endPoint.lng, this.endPoint.lat);
+  transit.search(start, end);
+}
 ```

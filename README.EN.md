@@ -54,8 +54,7 @@ _斜体示例_
 
 [这是一个链接](https://www.example.com)
 
-![这是一个示例图片](/image/image4.jpg)
-![门户主系统](/image/blog/highway-gateway-pc/gateway.png)
+![这是一个示例图片](/image/blog/highway-gateway-pc/gateway.png)
 
 
 ### 注意:

@@ -101,3 +101,287 @@ tags:
 5. 成功免登跳转至系统首页
 
 ![微信小程序](/image/blog/highway-gateway-pc/app.png)
+
+## 代码示例
+
+### mqtt通用操作
+```javascript
+var MqttTopics = [];
+var MqttClients = [];
+var connectUrl = CONFIG_g.VUE_APP_MQTT;
+let Mqttserver = null;
+// 接收mqtt
+function screenMqtt(_topic, hostname, callback) {
+  connectUrl = CONFIG_sreen.VUE_APP_MQTT[hostname];
+  Mqtt(_topic, callback, hostname);
+}
+function Mqtt(_topic, callback, hostName) {
+  if (typeof _topic === "string") {
+    let MqttServer = getMqttServer(_topic, hostName);
+    MqttServer.client.on("message", (topic, message, packet) => {
+      if (callback) {
+        let payloadStr = new TextDecoder("utf-8").decode(message);
+        let msg = JSON.parse(payloadStr);
+        if(msg.data && typeof msg.data === 'string'){
+          msg.data = JSON.parse(msg.data)
+        }
+        callback(topic, msg, packet);
+      }
+    });
+  } else {
+    if (Array.isArray(_topic)) {
+      let topics = _topic;
+      topics.forEach((topic) => {
+        let MqttServer = getMqttServer(topic, hostName);
+        // console.log(MqttServer,'MqttServer');
+        MqttServer.client.subscribe(topic, (err) => {
+          if (!err) {
+            console.log("订阅成功");
+          }
+        });
+        // MqttServer.subscribe(topic, (err) => {
+        //   if (!err) {
+        //     console.log("订阅成功");
+        //   }
+        // });
+        MqttServer.client.on("message", (topic, message, packet) => {
+          if (callback) {
+            let payloadStr = new TextDecoder("utf-8").decode(message);
+            if (!payloadStr) {
+              return;
+            }
+            let msg = JSON.parse(payloadStr);
+            if(msg.data && typeof msg.data === 'string'){
+              msg.data = JSON.parse(msg.data)
+            }
+            callback(topic, msg, packet);
+          }
+        });
+      });
+    } else {
+      console.log("_topic格式错误");
+    }
+  }
+}
+// 发送mqtt
+function screenMqttPublish(_topic, hostname, message) {
+  connectUrl = CONFIG_sreen.VUE_APP_MQTT[hostname];
+  MqttPublish(_topic, message);
+}
+
+function MqttPublish(_topic, message) {
+  if (typeof _topic === "string") {
+    let MqttServer = getMqttServer(_topic);
+    MqttServer.publish(_topic, message);
+  } else {
+    if (Array.isArray(_topic)) {
+      let topics = _topic;
+      topics.forEach((topic) => {
+        let MqttServer = getMqttServer(topic);
+        MqttServer.publish(topic, message);
+      });
+    } else {
+      console.log("_topic格式错误");
+    }
+  }
+}
+// 取消订阅mqtt
+function screenMqttUnsubscribe(_topic, hostname) {
+  connectUrl = CONFIG_sreen.VUE_APP_MQTT[hostname];
+  MqttUnsubscribe(_topic);
+}
+function MqttUnsubscribe(_topic) {
+  return new Promise((resolve) => {
+    if (typeof _topic === "string") {
+      let MqttServer = getMqttServer(_topic);
+      if (MqttServer.client && MqttServer.client.connected) {
+        MqttServer.unsubscribe(_topic);
+        removeMqttServer(_topic);
+        resolve();
+      }
+    } else {
+      if (Array.isArray(_topic)) {
+        let topics = _topic;
+        topics.forEach((topic) => {
+          let MqttServer = getMqttServer(topic);
+          if (MqttServer.client && MqttServer.client.connected) {
+            MqttServer.unsubscribe(topic);
+            removeMqttServer(topic);
+            resolve();
+          }
+        });
+      } else {
+        console.log("_topic格式错误");
+      }
+    }
+  });
+}
+
+function getMqttServer(_topic,hostName) {
+  if(hostName){
+    Mqttserver = MqttClients.find(clients => clients.hostName === hostName)
+    if(Mqttserver) {
+      return Mqttserver
+    }else{
+      // 没有订阅过该topic
+      console.log("未订阅=>" + _topic);
+      Mqttserver = new MqttApi(connectUrl, _topic, hostName);
+      MqttTopics.push(_topic);
+      MqttClients.push(Mqttserver);
+      return Mqttserver
+    }
+  }
+
+  if (MqttTopics.indexOf(_topic) != -1) {
+    // 已经订阅过该topic
+    console.log("已订阅=>" + _topic);
+    MqttTopics.forEach((topic, index) => {
+      if (topic === _topic) {
+        Mqttserver = MqttClients[index];
+      }
+    });
+  } else {
+    // 没有订阅过该topic
+    console.log("未订阅=>" + _topic);
+    Mqttserver = new MqttApi(connectUrl, _topic, hostName);
+    MqttTopics.push(_topic);
+    MqttClients.push(Mqttserver);
+  }
+  return Mqttserver;
+}
+function removeMqttServer(_topic) {
+  MqttTopics.forEach((topic, index) => {
+    if (topic === _topic) {
+      MqttTopics.splice(index, 1);
+      MqttClients.splice(index, 1);
+      return;
+    }
+  });
+  console.log(MqttTopics);
+  console.log(MqttClients);
+}
+
+class MqttApi {
+  client = null;
+  hostName;
+  constructor(connectUrl, topic, hostName) {
+    console.log(connectUrl,'connectUrl');
+    this.hostName = hostName
+    const options = {
+      keepalive: 60, // 默认60秒，设置0为禁用
+      clean: true, // 设置为false以在脱机时接收QoS 1和2消息
+      clientId: "mqttjs_" + Math.random().toString(16).substr(2, 8),
+      protocolId: "MQTT",
+      protocolVersion: 4, //MQTT 协议版本号，默认为 4（v3.1.1）可以修改为 3（v3.1）和 5（v5.0）
+      reconnectPeriod: 4000, //设置多长时间进行重新连接 单位毫秒 两次重新连接之间的时间间隔。通过将设置为，禁用自动重新连接0
+      connectTimeout: 30 * 1000, // 收到CONNACK之前等待的时间
+    };
+    this.client = mqtt.connect(connectUrl, options);
+    this.client.on("connect", (connack) => {
+      console.log("链接成功");
+      if (topic) {
+        this.client.subscribe(topic, (err) => {
+          if (!err) {
+            console.log("订阅成功");
+          }
+        });
+      }
+    });
+    this.client.on("reconnect", function (error) {
+      if (error) {
+        // console.log(error)
+      } else {
+        console.log("正在重连.....");
+      }
+    });
+    this.client.on("close", function (error) {
+      if (error) {
+        // console.log(error)
+      } else {
+        console.log("客户端已断开.....");
+      }
+    });
+    this.client.on("offline", function (error) {
+      if (error) {
+        console.log(error);
+      } else {
+        console.log("offline.....");
+      }
+    });
+    //当客户端无法连接或出现错误时触发回调
+    this.client.on("error", (error) => {
+      console.log("客户端出现错误....." + error);
+    });
+    this.client.on("packetsend", (packet) => {
+      if (packet && packet.payload) {
+        console.log("客户端已发出数据包....." + packet.payload);
+      }
+    });
+  }
+  // 断开链接
+  disconnect() {
+    try {
+      if (this.client && this.client.connected) {
+        console.log("断开连接");
+        this.client.end();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  // 重新链接
+  reconnect() {
+    this.client.reconnect();
+  }
+  // 关闭
+  close() {
+    try {
+      if (this.client && this.client.connected) {
+        this.client.end();
+        this.client = null;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  // 发布消息
+  publish(topic, message) {
+    // if (this.client && this.client.connected) {
+    if (this.client) {
+      this.client.publish(topic, JSON.stringify(message), (error) => {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log("发布消息成功");
+        }
+      });
+    }
+  }
+  // 订阅主题
+  subscribe(topic) {
+    if (this.client && this.client.connected) {
+      console.log(this,'clicent');
+
+      this.client.subscribe(topic, function (error, granted) {
+        if (error) {
+          console.log(error,'error');
+        } else {
+          console.log(`${granted[0].topic} 订阅成功`);
+        }
+      });
+    }
+  }
+  // 取消订阅
+  unsubscribe(topic) {
+    if (this.client && this.client.connected) {
+      this.client.unsubscribe(topic, (error) => {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log("取消订阅成功");
+        }
+      });
+    }
+  }
+}
+```
