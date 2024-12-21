@@ -1,44 +1,47 @@
 ---
 title: "智慧叉车管理平台"
 description: "负责整个项目的前端建设"
-pubDate: "2023.03.01"
-projectCycle: "2023.03.01 - 2023.05.01"
-image: /image/image3.png
+pubDate: "2023.03.03"
+projectCycle: "2023.03.03 - 2023.05.07"
+image: /image/blog/tlxx-zhcc-pc/banner.png
 categories:
   - 公司项目
 tags:
   - vue
+  - h5
   - uniapp
   - app
   - web
   - 百度地图
   - 小程序
-  - 雷达
   - 大屏
-  - h5
 ---
+## 项目介绍
 
-## 智慧叉车管理平台
+> 该平台旨在提供全面的叉车管理功能和服务，主要包括以下核心模块：
 
-```json
-[
- {
-      "name": "智慧叉车管理平台",
-      "time": "2023.03.01 - 2023.05.01",
-      "responsibleModule": "负责整个项目的前端建设",
-      "outPic": "",
-      "systemPic": [],
-      "difficulty": "车辆的轨迹回放功能",
-      "moreInfo": "更多"
-    },
-    {
-      "name": "智慧叉车管理平台App",
-      "time": "2023.04.10 - 2023.05.01",
-      "responsibleModule": "负责整个项目的前端建设",
-      "outPic": "",
-      "systemPic": [],
-      "difficulty": null,
-      "moreInfo": "更多"
-    }
-]
-```
+- **车辆管理**：管理叉车的基本信息以及控制叉车运行状态。（如：关机、重启、轨迹回放等）
+![车辆管理](/image/blog/tlxx-zhcc-pc/car.png)
+![轨迹回放](/image/blog/tlxx-zhcc-pc/trackPlayback.png)
+
+- **围栏管理**：绘制叉车安全区域，实现安全监控。
+![围栏管理](/image/blog/tlxx-zhcc-pc/area.png)
+
+- **设备管理**：配置安装在叉车上的芯片卡参数，实现智能控制。
+![设备管理](/image/blog/tlxx-zhcc-pc/device.png)
+
+- **移动端**：展示叉车基础信息和实时位置。
+![移动端](/image/blog/tlxx-zhcc-pc/monitor-h5.png)
+![移动端](/image/blog/tlxx-zhcc-pc/h5.png)
+
+- **统计分析**：提供数据统计分析功能，帮助用户了解叉车运行情况。
+![统计分析](/image/blog/tlxx-zhcc-pc/statistics-h5.png)
+
+通过这些模块，用户可以方便地管理叉车的状态、任务分配和监控信息，提升运营效率和安全性。
+
+## 项目难点
+
+- **跨平台兼容性**：使用uniapp开发的h5，需要考虑跨平台兼容性问题。
+- **实时位置显示**：实时获取叉车位置信息，并实时更新地图上位置标记。
+- **数据统计分析**：需要统计分析叉车运行情况，并生成可视化图表。
+
