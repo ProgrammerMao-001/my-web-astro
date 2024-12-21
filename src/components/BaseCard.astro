@@ -11,6 +11,7 @@ const {
   title = "undefined",
   image,
   pubDate,
+  projectCycle,
   badge,
   categories,
   tags,
@@ -49,8 +50,13 @@ const hasTags = tags && tags.length > 0;
         <div class="mt-2 fade-in-up">
           <div class="flex items-center justify-between">
             <div class="flex items-center gap-2">
-              {displayDate && (
+            <!--  {displayDate && (
                 <div class="badge badge-neutral">{displayDate}</div>
+              )} // 项目开始时间-->
+
+              <!-- 项目周期 -->
+              {projectCycle && (
+                <div class="badge badge-neutral">{projectCycle}</div>
               )}
               {badge && <div class="badge badge-primary">{badge}</div>}
             </div>

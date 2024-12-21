@@ -1,8 +1,8 @@
 ---
 title: "乌兰察布市智慧公路管理平台"
-description: "负责项目的整个前端建设"
-pubDate: "2024.5.02"
-projectCycle: "2024.5.02 - 2024.11.01"
+description: "负责所有子系统在门户端的接入、大屏一张图的框架搭建以及前端项目进度把控。"
+pubDate: "2024.05.06"
+projectCycle: "2024.05.06 - 2024.12.16"
 image: /image/blog/highway-gateway-pc/banner.png
 categories:
   - 公司项目
@@ -23,9 +23,11 @@ tags:
 所有的子系统包含各自的业务模块，单独部署，方便维护和扩展并且支持第三方平台的接入。
 其中资产管理系统、养护管理系统、信息发布系统均由原先的系统迁移过来，并做相应的修改，详情可以点击标题查看具体介绍。
 
-1. 门户主系统
+1. **门户主系统**
+- 控制子系统的访问权限，同时可以接入第三方平台。
 ![门户主系统](/image/blog/highway-gateway-pc/gateway.png)
-2. 一张图系统
+2. **一张图系统**
+- 所有子系统的图表显示，如路段状态、气象信息、车辆位置、视频播放等。
 ![一张图系统](/image/blog/highway-gateway-pc/aPicture.png)
 3. [资产管理系统(原设备设施管理平台)](/blog/facility-pc)
 ![资产管理系统](/image/blog/highway-gateway-pc/asset.png)
@@ -49,6 +51,8 @@ tags:
 ### 海康视频流播放
 > 系统默认使用video.js插件播放视频。如果用户安装了海康视频播放插件，则使用海康插件播放【video.js通过调用接口的形式实现，而海康插件则自带了这些功能仅需项目中引入SDK即可】
 并支持以下功能：
+![海康视频流播放](/image/blog/highway-gateway-pc/camera.png)
+
 - 旋转
 - 聚焦
 - 截图

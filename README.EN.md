@@ -56,3 +56,7 @@ _斜体示例_
 
 ![这是一个示例图片](/image/image4.jpg)
 ![门户主系统](/image/blog/highway-gateway-pc/gateway.png)
+
+
+### 注意:
+1. content/blog 下面的文件中pubDate是项目的开始时间，projectCycle是项目周期
