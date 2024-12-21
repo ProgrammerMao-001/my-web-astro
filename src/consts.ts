@@ -1,3 +1,4 @@
+import { calculateTimeDifference } from "./utils/dateFormat.js";
 // ---------------- ↓ 网站信息 ↓ ----------------
 export const SITE_LANG = "zh"; // zh, en
 export const SITE_AUTHOR = "毛杭飞";
@@ -20,7 +21,8 @@ export const DATE_FORMAT = "YYYY-MM-DD";
 export const USER_NAME = "MaoHangFei";
 export const USER_SITE = "https://demo.saroprock.com" // http://maohangfei.cn todo 等域名审核通过后打开
 export const USER_AVATAR = "/profile.webp";
-
+export const USER_START_WORK = "2021-04-21";
+export const USER_WORK_EXPERIENCE = calculateTimeDifference(USER_START_WORK);
 // ---------------- ↑ 用户信息 ↑ ----------------
 
 // ---------------- ↓ 后台服务 ↓ ----------------

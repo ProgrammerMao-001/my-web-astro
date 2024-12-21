@@ -9,7 +9,7 @@ import Success from "../components/blog/success.astro";
 import Warning from "../components/blog/warning.astro";
 import TimeLine from "../components/page/TimeLine.astro";
 import LinkCard from "../components/page/LinkCard.astro";
-import {SITE_AUTHOR, SITE_INTRO, SITE_QQ1, SITE_QQ, SITE_EMAIL} from "../consts.js";
+import {SITE_AUTHOR, SITE_INTRO, SITE_QQ1, SITE_QQ, SITE_EMAIL, USER_WORK_EXPERIENCE} from "../consts.js";
 
 <BaseLayout title="Home">
     <BaseCard title="Home">
@@ -28,7 +28,7 @@ import {SITE_AUTHOR, SITE_INTRO, SITE_QQ1, SITE_QQ, SITE_EMAIL} from "../consts.
 
         - **姓名**: {SITE_AUTHOR}
         - **职业**: 全栈开发工程师
-        - **工龄**: 6年
+        - **工龄**: {USER_WORK_EXPERIENCE}
         - **交付项目**: 99+
         - **地点**: <a href="https://j.map.baidu.com/06/4d2i" target="_blank">浙江 · 杭州</a>
 
